@@ -5,7 +5,9 @@ import TodoList from './TodoList.js'
 
 class  App extends React.Component {
   state = {
-    todos:[] // an empty array inside our state
+    todos:[], // an empty array inside our state
+    currentPage:0,
+    numberPerPage:10
   }
   
   loadTodos = () => {
@@ -17,11 +19,28 @@ class  App extends React.Component {
       })
   }
   
+  nextPage = () => {
+    this.setState({
+      currentPage: this.state.currentPage + 1
+    })
+  }
+  
+  prevPage = () => {
+      this.setState({
+      currentPage: this.state.currentPage -1
+    })
+  }
+  
   render() {
     return (
       <div className="App">
         <button onClick={this.loadTodos}>Load</button>
-        <TodoList todos={this.state.todos}/>
+        <TodoList todos={this.state.todos}
+                  currentPage={this.state.currentPage}
+                  numberPerPage={this.state.numberPerPage}
+                  nextPage={this.nextPage}
+                  prevPage={this.prevPage}
+        />
       </div>
     );
   }
