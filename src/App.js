@@ -8,7 +8,7 @@ class  App extends React.Component {
   state = {
     todos:[], // an empty array inside our state
     currentPage:0,
-    numberPerPage:15
+    numberPerPage:33
   }
   
   componentDidMount() {
