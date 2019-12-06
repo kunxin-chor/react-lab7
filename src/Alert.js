@@ -1,7 +1,7 @@
 import React from 'react'
 
 function Alert(props) {
-    return (<h1>Alert</h1>)
+    return (<h2>Alert</h2>)
 }
 
 export default Alert
