@@ -1,13 +1,18 @@
 import React from 'react';
 import axios from 'axios';
 
-import TodoList from './TodoList.js'
+import TodoList from './TodoList'
+import Counter from './Counter'
 
 class  App extends React.Component {
   state = {
     todos:[], // an empty array inside our state
     currentPage:0,
     numberPerPage:10
+  }
+  
+  componentDidMount() {
+    this.loadTodos()
   }
   
   loadTodos = () => {
@@ -34,6 +39,7 @@ class  App extends React.Component {
   render() {
     return (
       <div className="App">
+        <Counter/>
         <button onClick={this.loadTodos}>Load</button>
         <TodoList todos={this.state.todos}
                   currentPage={this.state.currentPage}
